@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="id" x-data="countdownApp()" x-init="init()">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>UKT Periode 1 Kelatnas Indonesia Perisai Diri Cabang Surakarta Tahun 2026</title>
+
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+        <!-- Tailwind -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Alpine JS -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+        <!-- BOOTSTRAP ICON -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+        <!-- Icons -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+
+        <style>
+            * {
+                font-family: "Poppins", sans-serif;
+                scroll-behavior: smooth;
+            }
+
+            [x-cloak] {
+                display: none !important;
+            }
+
+            body {
+                background: #0f172a;
+            }
+
+            .glass {
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .hero-overlay {
+                background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95));
+            }
+
+            .animate-float {
+                animation: float 4s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+        </style>
+    </head>
+
+    <body class="text-white overflow-x-hidden">
+        <!-- HERO -->
+        <section class="relative min-h-screen overflow-hidden">
+            <!-- BACKGROUND -->
+            <img src="background.webp" class="absolute inset-0 w-full h-full object-cover" alt="" />
+
+            <!-- OVERLAY -->
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-black/80 to-slate-900/95"></div>
+
+            <!-- SOFT DECOR -->
+            <div class="absolute inset-0 overflow-hidden">
+                <!-- RED ACCENT -->
+                <div class="absolute top-[-120px] right-[-100px] w-[28rem] h-[28rem] bg-red-500/12 blur-3xl rounded-full"></div>
+
+                <!-- GOLD ACCENT -->
+                <div class="absolute bottom-[-120px] left-[-80px] w-[24rem] h-[24rem] bg-yellow-400/10 blur-3xl rounded-full"></div>
+
+                <!-- DARK BLUE -->
+                <div class="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-slate-700/20 blur-3xl rounded-full"></div>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="relative z-20 min-h-screen flex items-center">
+                <div class="max-w-7xl mx-auto px-6 md:px-4 py-20 w-full">
+                    <!-- MOBILE = FLEX COL -->
+                    <!-- DESKTOP = GRID -->
+                    <div class="flex flex-col lg:grid lg:grid-cols-2 gap-4 md:gap-10 items-center">
+                        <!-- LEFT -->
+                        <div class="text-center lg:text-left order-1">
+                            <!-- BADGE -->
+                            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-yellow-400/30 bg-yellow-500/10 backdrop-blur-xl text-red-200 font-medium mb-6 shadow-lg shadow-red-500/10">
+                                <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse shadow-lg shadow-red-500"> </span>
+
+                                UKT Periode 1 • 24 Mei 2026
+                            </div>
+
+                            <!-- TITLE -->
+                            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 tracking-tight">
+                                <span class="text-white"> Kelatnas Indonesia </span>
+
+                                <span class="block bg-gradient-to-r from-red-500 via-red-400 to-yellow-300 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(239,68,68,0.35)]"> Perisai Diri </span>
+
+                                <span class="text-white/90"> Cabang Surakarta </span>
+                            </h1>
+
+                            <!-- TAGLINE -->
+                            <p class="text-lg md:text-2xl text-gray-200 font-medium leading-relaxed">"Pandai Silat Tanpa Cidera"</p>
+
+                            <!-- MOTTO -->
+                            <div class="flex items-center justify-center md:justify-start gap-3 mb-8 mt-4 flex-wrap">
+                                <span class="px-6 py-2 rounded-xl bg-red-500/10 border border-red-400/20 text-red-200 font-semibold"> Asah </span>
+
+                                <span class="text-white/30">•</span>
+
+                                <span class="px-6 py-2 rounded-xl bg-yellow-500/10 border border-yellow-400/20 text-yellow-200 font-semibold"> Asih </span>
+
+                                <span class="text-white/30">•</span>
+
+                                <span class="px-6 py-2 rounded-xl bg-white/10 border border-white/10 text-white font-semibold"> Asuh </span>
+                            </div>
+
+                            <div class="hidden md:block">
+                                <!-- BUTTON -->
+                                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                                    <!-- PRIMARY -->
+                                    <a href="#informasi-ukt" class="group relative overflow-hidden w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-red-600 to-red-500 text-white font-bold shadow-2xl shadow-red-900/40 hover:scale-105 transition duration-300">
+                                        <span class="relative z-10"> Lihat Informasi UKT </span>
+
+                                        <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-yellow-400 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                                    </a>
+
+                                    <!-- SECONDARY -->
+                                    <a href="#materi-ukt" class="w-full sm:w-auto px-8 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-white font-semibold hover:bg-red-500/10 hover:border-red-400/30 transition duration-300"> Materi UKT </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT / CARD -->
+                        <!-- MOBILE POSITION -->
+                        <div class="relative flex justify-center order-2">
+                            <!-- SOFT GLOW -->
+                            <div class="absolute w-[420px] h-[420px] bg-red-500/10 blur-3xl rounded-full"></div>
+
+                            <!-- CARD -->
+                            <div class="relative w-full max-w-md rounded-[2.5rem] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.55)] overflow-hidden">
+                                <!-- TOP LINE -->
+                                <div class="h-4 w-full bg-gradient-to-r from-red-400 via-yellow-300 to-red-400"></div>
+
+                                <!-- CONTENT -->
+                                <div class="p-8">
+                                    <!-- LOGO -->
+                                    <div class="relative z-10 flex justify-center mb-8">
+                                        <div class="relative w-40 h-40 rounded-full bg-white/5 border border-white/10 shadow-2xl p-5 animate-float">
+                                            <div class="absolute inset-0 rounded-full border border-red-400/10"></div>
+
+                                            <img src="logo.webp" class="w-full h-full object-contain relative z-10" alt="Logo" />
+                                        </div>
+                                    </div>
+
+                                    <!-- TEXT -->
+                                    <div class="text-center mb-8">
+                                        <p class="text-red-200 font-semibold tracking-[0.35em] mb-3 uppercase">( U K T )</p>
+
+                                        <h2 class="text-2xl font-bold mb-2 text-white">Ujian Kenaikan Tingkat</h2>
+
+                                        <p class="text-gray-300">Periode 1 • 24 Mei 2026</p>
+                                    </div>
+
+                                    <!-- COUNTDOWN -->
+                                    <div class="grid grid-cols-4 gap-3">
+                                        <div class="bg-red-500/10 border border-red-400/10 rounded-2xl p-4 text-center">
+                                            <div class="text-2xl md:text-3xl font-black text-white" x-text="days">00</div>
+
+                                            <div class="text-xs text-red-100/80 mt-1">Hari</div>
+                                        </div>
+
+                                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
+                                            <div class="text-2xl md:text-3xl font-black text-white" x-text="hours">00</div>
+
+                                            <div class="text-xs text-gray-400 mt-1">Jam</div>
+                                        </div>
+
+                                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
+                                            <div class="text-2xl md:text-3xl font-black text-white" x-text="minutes">00</div>
+
+                                            <div class="text-xs text-gray-400 mt-1">Menit</div>
+                                        </div>
+
+                                        <div class="bg-yellow-500/10 border border-yellow-400/10 rounded-2xl p-4 text-center">
+                                            <div class="text-2xl md:text-3xl font-black text-white" x-text="seconds">00</div>
+
+                                            <div class="text-xs text-yellow-100/80 mt-1">Detik</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BOTTOM LINE -->
+                                <div class="h-4 w-full bg-gradient-to-r from-red-400 via-yellow-300 to-red-400"></div>
+                            </div>
+                        </div>
+
+                        <!-- MOBILE BOTTOM CONTENT -->
+                        <!-- DI MOBILE MUNCUL DI BAWAH CARD -->
+                        <!-- DI DESKTOP TETAP MENYATU DI KIRI -->
+                        <div class="order-3 w-full flex flex-col items-center lg:hidden">
+                            <!-- BUTTON -->
+                            <div class="flex flex-col w-full gap-4">
+                                <a href="#informasi-ukt" class="group relative overflow-hidden w-full px-8 py-4 rounded-2xl bg-gradient-to-r from-red-600 to-red-500 text-white font-bold shadow-2xl shadow-red-900/40 text-center">
+                                    <span class="relative z-10"> Lihat Informasi UKT </span>
+
+                                    <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-yellow-400 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                                </a>
+
+                                <a href="#materi-ukt" class="w-full px-8 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-white font-semibold text-center hover:bg-red-500/10 hover:border-red-400/30 transition duration-300"> Materi UKT </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LINKS -->
+        <section id="informasi-ukt" class="relative z-20 py-16 md:py-24 px-6 md:px-4 overflow-hidden">
+            <div class="max-w-6xl mx-auto relative z-10">
+                <!-- HEADER -->
+                <div class="text-center mb-12 md:mb-16">
+                    <!-- BADGE -->
+                    <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-yellow-400/20 bg-yellow-500/10 backdrop-blur-xl text-yellow-200 font-medium shadow-lg shadow-yellow-500/10 mb-6">
+                        <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"> </span>
+
+                        Informasi UKT
+                    </div>
+
+                    <!-- TITLE -->
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">
+                        <span class="text-white"> Informasi & </span>
+
+                        <span class="bg-gradient-to-r from-red-500 via-red-400 to-yellow-300 bg-clip-text text-transparent"> Kebutuhan UKT </span>
+                    </h2>
+
+                    <!-- SUBTITLE -->
+                    <p class="text-gray-400 text-base md:text-lg mx-auto leading-relaxed">Seluruh informasi penting terkait Ujian Kenaikan Tingkat Perisai Diri Cabang Surakarta.</p>
+                </div>
+
+                <!-- GRID -->
+                <div class="grid md:grid-cols-2 gap-5">
+                    <!-- ITEM -->
+                    <a href="https://s.id/Edaran-UKT1-PDSolo26" target="_blank" class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl p-5 md:p-6 hover:scale-[1.02] transition duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+                        <!-- HOVER GLOW -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/5 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+                        <div class="relative z-10 flex items-center gap-4">
+                            <!-- ICON -->
+                            <div class="min-w-[60px] h-[60px] rounded-2xl bg-gradient-to-br from-yellow-400 to-yellow-300 text-slate-900 flex items-center justify-center shadow-lg shadow-yellow-500/20">
+                                <i data-lucide="file-text"></i>
+                            </div>
+
+                            <!-- TEXT -->
+                            <div>
+                                <h3 class="font-bold text-lg text-white leading-snug group-hover:text-yellow-200 transition">Surat Edaran UKT Perisai Diri Cabang Surakarta</h3>
+
+                                <p class="text-sm text-gray-400 mt-1">Informasi resmi pelaksanaan UKT.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- ITEM -->
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSciqE_EHCp5ZCAQgjjl31m9K1xGbREoav3UT36_xc6CuKTnIg/viewform" target="_blank" class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl p-5 md:p-6 hover:scale-[1.02] transition duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+                        <div class="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/5 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+                        <div class="relative z-10 flex items-center gap-4">
+                            <div class="min-w-[60px] h-[60px] rounded-2xl bg-gradient-to-br from-red-500 to-red-400 text-white flex items-center justify-center shadow-lg shadow-red-500/20">
+                                <i data-lucide="clipboard-list"></i>
+                            </div>
+
+                            <div>
+                                <h3 class="font-bold text-lg text-white leading-snug group-hover:text-red-200 transition">Formulir Online UKT PD Surakarta</h3>
+
+                                <p class="text-sm text-gray-400 mt-1">Pendaftaran peserta UKT secara online.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- ITEM -->
+                    <a href="https://s.id/Form-UKT1-PDSolo26" target="_blank" class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl p-5 md:p-6 hover:scale-[1.02] transition duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+                        <div class="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/5 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+                        <div class="relative z-10 flex items-center gap-4">
+                            <div class="min-w-[60px] h-[60px] rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-300 text-slate-900 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                                <i data-lucide="download"></i>
+                            </div>
+
+                            <div>
+                                <h3 class="font-bold text-lg text-white leading-snug group-hover:text-emerald-200 transition">Download Offline Formulir UKT</h3>
+
+                                <p class="text-sm text-gray-400 mt-1">Download formulir untuk pengisian manual.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- ITEM -->
+                    <a href="https://s.id/UndanganPenguji-UKT1-PDSolo26" target="_blank" class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl p-5 md:p-6 hover:scale-[1.02] transition duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+                        <div class="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/5 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+                        <div class="relative z-10 flex items-center gap-4">
+                            <div class="min-w-[60px] h-[60px] rounded-2xl bg-gradient-to-br from-slate-200 to-white text-slate-900 flex items-center justify-center shadow-lg shadow-white/10">
+                                <i data-lucide="users"></i>
+                            </div>
+
+                            <div>
+                                <h3 class="font-bold text-lg text-white leading-snug group-hover:text-gray-200 transition">Surat Undangan Penguji UKT</h3>
+
+                                <p class="text-sm text-gray-400 mt-1">Informasi dan daftar penguji UKT.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MATERI -->
+        <section id="materi-ukt" class="relative z-20 py-16 md:py-24 px-6 md:px-4 overflow-hidden">
+            <div class="max-w-6xl mx-auto relative z-10">
+                <!-- HEADER -->
+                <div class="text-center mb-12 md:mb-16">
+                    <!-- BADGE -->
+                    <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-yellow-400/20 bg-yellow-500/10 backdrop-blur-xl text-yellow-200 font-medium shadow-lg shadow-yellow-500/10 mb-6">
+                        <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"> </span>
+
+                        Materi UKT
+                    </div>
+
+                    <!-- TITLE -->
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">
+                        <span class="text-white"> Materi </span>
+
+                        <span class="bg-gradient-to-r from-red-500 via-red-400 to-yellow-300 bg-clip-text text-transparent"> Ujian Kenaikan Tingkat </span>
+                    </h2>
+
+                    <!-- SUBTITLE -->
+                    <p class="text-gray-400 text-base md:text-lg mx-auto leading-relaxed">Pelajari materi sesuai tingkat untuk persiapan menghadapi Ujian Kenaikan Tingkat Perisai Diri Cabang Surakarta.</p>
+                </div>
+
+                <!-- GRID -->
+                <div class="grid md:grid-cols-2 gap-5">
+                    <!-- CARD -->
+                    <template x-for="item in materi" :key="item.title">
+                        <a :href="item.link" target="_blank" class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-2xl p-5 md:p-6 hover:translate-y-[-4px] transition duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
+                            <!-- HOVER GLOW -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/5 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+                            <div class="relative z-10 flex items-center gap-4">
+                                <!-- ICON -->
+                                <div class="min-w-[60px] h-[60px] rounded-2xl bg-white/5 border border-white/10 p-2 shadow-lg group-hover:border-red-400/20 transition">
+                                    <img src="logo.webp" class="w-full h-full object-contain" alt="Logo" />
+                                </div>
+
+                                <!-- TEXT -->
+                                <div class="font-semibold text-white text-base md:text-lg leading-snug group-hover:text-yellow-200 transition" x-text="item.title"></div>
+                            </div>
+                        </a>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATION -->
+        <section class="relative z-20 py-16 md:py-24 px-6 md:px-4 overflow-hidden">
+            <div class="max-w-6xl mx-auto relative z-10">
+                <!-- WRAPPER -->
+                <div class="rounded-[2.5rem] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+                    <div class="grid lg:grid-cols-2">
+                        <!-- INFO -->
+                        <div class="relative p-8 md:p-10 lg:p-12">
+                            <!-- SOFT GLOW -->
+                            <div class="absolute top-0 right-0 w-56 h-56 bg-red-500/10 blur-3xl rounded-full"></div>
+
+                            <div class="relative z-10">
+                                <!-- BADGE -->
+                                <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-yellow-400/20 bg-yellow-500/10 backdrop-blur-xl text-yellow-200 font-medium shadow-lg shadow-yellow-500/10 mb-6">
+                                    <i data-lucide="map-pinned" class="w-4 h-4 text-red-300"> </i>
+
+                                    Lokasi UKT Perisai Diri
+                                </div>
+
+                                <!-- TITLE -->
+                                <h2 class="text-3xl md:text-4xl font-black leading-tight mb-4">
+                                    <span class="text-white"> SMK Negeri 7 </span>
+
+                                    <span class="bg-gradient-to-r from-red-500 via-red-400 to-yellow-300 bg-clip-text text-transparent"> Surakarta </span>
+                                </h2>
+
+                                <!-- ADDRESS -->
+                                <p class="text-gray-300 leading-relaxed text-base md:text-lg mb-8">Jl. A. Yani No.374, Kerten, Kec. Laweyan, Kota Surakarta, Jawa Tengah 57143</p>
+
+                                <!-- ACTION -->
+                                <div class="space-y-4">
+                                    <!-- CONTACT -->
+                                    <a href="https://wa.me/6285743111943" target="_blank" class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-red-500/10 hover:border-red-400/20 transition duration-300 p-4">
+                                        <div class="min-w-[52px] h-[52px] rounded-2xl bg-gradient-to-br from-red-500 to-red-400 text-white flex items-center justify-center shadow-lg shadow-red-500/20">
+                                            <i data-lucide="phone" class="w-5 h-5"> </i>
+                                        </div>
+
+                                        <div>
+                                            <p class="text-white font-semibold group-hover:text-red-200 transition">Kontak Panitia</p>
+
+                                            <p class="text-sm text-gray-400">Hubungi panitia UKT PD Surakarta</p>
+                                        </div>
+                                    </a>
+
+                                    <!-- PENGUJI -->
+                                    <a href="https://s.id/PengujiPanitia-UKT1-PDSolo26" target="_blank" class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-yellow-500/10 hover:border-yellow-400/20 transition duration-300 p-4">
+                                        <div class="min-w-[52px] h-[52px] rounded-2xl bg-gradient-to-br from-yellow-400 to-yellow-300 text-slate-900 flex items-center justify-center shadow-lg shadow-yellow-500/20">
+                                            <i data-lucide="shield-check" class="w-5 h-5"> </i>
+                                        </div>
+
+                                        <div>
+                                            <p class="text-white font-semibold group-hover:text-yellow-200 transition">Daftar Penguji UKT</p>
+
+                                            <p class="text-sm text-gray-400">Penguji resmi UKT PD Surakarta</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MAP -->
+                        <div class="relative min-h-[350px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-white/10 overflow-hidden">
+                            <!-- OVERLAY -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 pointer-events-none"></div>
+
+                            <iframe class="w-full h-full grayscale contrast-125 brightness-90" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.185641680488!2d110.79553827455031!3d-7.55472677459567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a14248bac46df%3A0xc41629251d6eb1a7!2sSurakarta%207%20States%20Vocational%20School!5e0!3m2!1sen!2sid!4v1778422770594!5m2!1sen!2sid" allowfullscreen="" loading="lazy"> </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="relative z-20 px-6 md:px-4 pb-10">
+            <div class="max-w-6xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <!-- LEFT -->
+                <div class="flex items-center gap-4">
+                    <!-- LOGO -->
+                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 p-2 backdrop-blur-xl">
+                        <img src="logo.webp" class="w-full h-full object-contain" alt="Logo" />
+                    </div>
+
+                    <!-- TEXT -->
+                    <div>
+                        <h3 class="font-bold text-white">Kelatnas Indonesia Perisai Diri</h3>
+
+                        <p class="text-sm text-gray-400">Cabang Surakarta • 2026</p>
+                    </div>
+                </div>
+
+                <!-- RIGHT -->
+                <p class="text-sm text-gray-500 text-center md:text-right leading-relaxed">
+                    © 2026 Kelatnas Indonesia Perisai Diri Cabang Surakarta.
+                    <br class="hidden md:block" />
+
+                    Pandai Silat Tanpa Cidera.
+                </p>
+            </div>
+        </footer>
+
+        <!-- FLOATING BUTTONS -->
+        <div x-data="{ openWa: false }" class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[999] flex flex-row md:flex-col items-end gap-3">
+            <!-- ===================================================== -->
+            <!-- QUICK CHAT -->
+            <!-- ===================================================== -->
+            <div x-cloak x-show="openWa" x-transition @click.away="openWa = false" class="absolute bottom-20 z-30 right-0 w-[calc(100vw-2rem)] max-w-[340px] rounded-[2rem] border border-white/10 bg-[#0b1220]/95 backdrop-blur-2xl overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.55)]">
+                <!-- TOP -->
+                <div class="relative p-4 border-b border-white/10 bg-gradient-to-r from-green-500/20 to-emerald-400/10">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-400/10 blur-3xl rounded-full"></div>
+
+                    <div class="relative flex items-center gap-3">
+                        <!-- ICON -->
+                        <div class="w-12 h-12 rounded-2xl bg-green-500 text-white flex items-center justify-center shadow-lg shadow-green-500/30">
+                            <i data-lucide="message-circle-more" class="w-5 h-5"></i>
+                        </div>
+
+                        <!-- TEXT -->
+                        <div>
+                            <h3 class="font-bold text-white">Panitia UKT</h3>
+
+                            <p class="text-xs text-green-200">Online • Fast Response</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHAT LIST -->
+                <div class="p-3 space-y-3">
+                    <!-- ITEM -->
+                    <a target="_blank" href="https://wa.me/6285743111943?text=Halo%20Panitia%20UKT%20Perisai%20Diri%20Cabang%20Surakarta%2C%20saya%20ingin%20bertanya%20terkait%20pelaksanaan%20UKT." class="group flex items-start gap-3 p-3 rounded-2xl bg-white/5 hover:bg-green-500/10 border border-white/10 hover:border-green-400/20 transition duration-300">
+                        <div class="min-w-[42px] h-[42px] rounded-xl bg-green-500/20 text-green-300 flex items-center justify-center">
+                            <i data-lucide="message-square" class="w-4 h-4"></i>
+                        </div>
+
+                        <div>
+                            <p class="text-sm text-white font-semibold group-hover:text-green-200 transition">Tanya Informasi UKT</p>
+
+                            <p class="text-xs text-gray-400 mt-1">Jadwal & pelaksanaan UKT.</p>
+                        </div>
+                    </a>
+
+                    <!-- ITEM -->
+                    <a target="_blank" href="https://wa.me/6285743111943?text=Halo%20Panitia%20UKT%20Perisai%20Diri%20Cabang%20Surakarta%2C%20saya%20ingin%20bertanya%20terkait%20pendaftaran%20UKT." class="group flex items-start gap-3 p-3 rounded-2xl bg-white/5 hover:bg-yellow-500/10 border border-white/10 hover:border-yellow-400/20 transition duration-300">
+                        <div class="min-w-[42px] h-[42px] rounded-xl bg-yellow-500/20 text-yellow-300 flex items-center justify-center">
+                            <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+                        </div>
+
+                        <div>
+                            <p class="text-sm text-white font-semibold group-hover:text-yellow-200 transition">Tanya Pendaftaran</p>
+
+                            <p class="text-xs text-gray-400 mt-1">Formulir & persyaratan UKT.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ===================================================== -->
+            <!-- SHARE BUTTON -->
+            <!-- ===================================================== -->
+
+            <button onclick="shareWebsite()" class="group relative w-14 h-14 md:w-16 md:h-16 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl text-white shadow-[0_10px_40px_rgba(0,0,0,0.35)] flex items-center justify-center hover:scale-110 hover:bg-red-500/10 hover:border-red-400/20 transition duration-300">
+                <div class="absolute inset-0 rounded-2xl bg-red-500/20 blur-xl opacity-0 group-hover:opacity-100 transition"></div>
+
+                <i data-lucide="share-2" class="relative z-10 w-5 h-5 md:w-6 md:h-6"> </i>
+            </button>
+
+            <!-- ===================================================== -->
+            <!-- WA BUTTON -->
+            <!-- ===================================================== -->
+
+            <button @click="openWa = !openWa" class="group relative w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-400 text-white shadow-[0_10px_40px_rgba(34,197,94,0.45)] flex items-center justify-center hover:scale-110 transition duration-300">
+                <div class="absolute inset-0 rounded-2xl bg-green-400 blur-xl opacity-40 group-hover:opacity-60 transition"></div>
+
+                <i class="bi bi-whatsapp relative z-10 text-2xl md:text-3xl"></i>
+            </button>
+        </div>
+
+        <script>
+            async function shareWebsite() {
+                if (navigator.share) {
+                    try {
+                        await navigator.share({
+                            title: "UKT Perisai Diri Cabang Surakarta",
+
+                            text: "Informasi UKT Kelatnas Indonesia Perisai Diri Cabang Surakarta",
+
+                            url: window.location.href,
+                        });
+                    } catch (err) {
+                        console.log(err);
+                    }
+                } else {
+                    navigator.clipboard.writeText(window.location.href);
+
+                    alert("Link berhasil disalin!");
+                }
+            }
+        </script>
+
+        <script>
+            lucide.createIcons();
+
+            function countdownApp() {
+                return {
+                    days: "00",
+                    hours: "00",
+                    minutes: "00",
+                    seconds: "00",
+
+                    materi: [
+                        {
+                            title: "Materi UKT Dasar 1 ke Dasar 2",
+                            link: "https://drive.google.com/drive/folders/1iImNRoz2SOXREFHq6U7WLHZ1cKSYpNfi?usp=sharing",
+                        },
+                        {
+                            title: "Materi UKT Dasar 2 ke Calon Keluarga",
+                            link: "https://drive.google.com/drive/folders/1TNJOypTCekBSO1NmBZ_n18xDWZjF8HD5?usp=sharing",
+                        },
+                        {
+                            title: "Materi UKT Calon Keluarga ke Strip Putih",
+                            link: "https://drive.google.com/drive/folders/1_Ftjr1oGydzEIHmCvIINmTqDRMUsdhQJ?usp=sharing",
+                        },
+                        {
+                            title: "Materi UKT Strip Putih ke Strip Putih Hijau",
+                            link: "https://drive.google.com/drive/folders/1MHlwGfPsDdP_Xq5ymcf2BB5uogcYniTP?usp=sharing",
+                        },
+                        {
+                            title: "Materi UKT Strip Putih Hijau ke Strip Hijau",
+                            link: "https://drive.google.com/drive/folders/1Fd4bx2u7DfJO-xwdu3p-BmAc3rcNsBFu?usp=sharing",
+                        },
+                        {
+                            title: "Materi UKT Strip Hijau ke Strip Hijau Biru",
+                            link: "https://drive.google.com/drive/folders/1W57wyoO1s-VvqQ9Xjs4pHr-CsDrlO8sO?usp=sharing",
+                        },
+                        {
+                            title: "Materi UKT Strip Hijau Biru ke Biru",
+                            link: "https://drive.google.com/drive/folders/16w0L09j9iof8zIggkvV-cwK7Idm4hsC2?usp=sharing",
+                        },
+                    ],
+                    init() {
+                        this.updateCountdown();
+
+                        setInterval(() => {
+                            this.updateCountdown();
+                        }, 1000);
+                    },
+
+                    updateCountdown() {
+                        const targetDate = new Date("May 24, 2026 00:00:00").getTime();
+
+                        const now = new Date().getTime();
+
+                        const distance = targetDate - now;
+
+                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        this.days = String(days).padStart(2, "0");
+                        this.hours = String(hours).padStart(2, "0");
+                        this.minutes = String(minutes).padStart(2, "0");
+                        this.seconds = String(seconds).padStart(2, "0");
+                    },
+                };
+            }
+        </script>
+    </body>
+</html>
